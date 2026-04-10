@@ -159,8 +159,9 @@ elif source == "🌐 Steam API (live)":
 
 # ---------- Display data ----------
 if df is not None and not df.empty:
-    # save snapshot for trends
-    save_daily_snapshot(df)
+    # save snapshot for trends (only from API, not from uploaded CSV)
+    if source == "🌐 Steam API (live)":
+        save_daily_snapshot(df)
 
     # summary metrics
     c1, c2, c3 = st.columns(3)
