@@ -109,16 +109,22 @@ st.markdown(
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-/* Global overrides */
-.stApp {
-    background: #0f172a !important;
-    font-family: 'Inter', sans-serif !important;
-    color: #e2e8f0;
-}
+/* Global background + font */
+html, body { background-color: #0f172a !important; }
+.stApp { font-family: 'Inter', sans-serif !important; color: #e2e8f0; }
 
-/* Hide Streamlit default elements */
-#MainMenu, header, footer { visibility: hidden; }
-.block-container { padding-top: 0 !important; max-width: 100% !important; }
+/* Hide Streamlit chrome */
+#MainMenu, [data-testid="stHeader"],
+[data-testid="stToolbar"], [data-testid="stDecoration"],
+[data-testid="stStatusWidget"] {
+    display: none !important;
+    height: 0 !important;
+}
+.block-container {
+    padding-top: 0 !important;
+    max-width: 100% !important;
+    padding-bottom: 0 !important;
+}
 
 /* ── Navbar ── */
 .navbar {
@@ -314,6 +320,8 @@ st.markdown(
     text-align: center; padding: 2.5rem;
     border-top: 1px solid rgba(255,255,255,0.04);
     color: #475569; font-size: 0.8rem;
+    background: #0f172a;
+    margin-top: 2rem;
 }
 .footer span {
     background: linear-gradient(135deg,#60a5fa,#a78bfa);
